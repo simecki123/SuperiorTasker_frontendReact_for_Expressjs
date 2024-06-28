@@ -1,0 +1,99 @@
+/* Light version of EditProfile.css */
+.edit-profile-screen-container {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    color: #333;
+}
+
+.edit-profile-user-info-container {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.edit-profile-name-title {
+    margin-bottom: 5px;
+}
+
+.edit-profile-enter-name-user-input,
+.description-edit-profile {
+    color: #333;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.save-btn-edit-profile {
+    background-color: #28a745; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.save-btn-edit-profile:hover {
+    background-color: #218838;
+}
+
+.description-edit-profile {
+    resize: none;
+    height: 100px;
+}
+
+/* Loading Screen */
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: #333;
+    font-size: 1.5rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    flex-direction: column;
+}
+  
+/* Loader Animation */
+.loader {
+    border: 16px solid #ccc; 
+    border-top: 16px solid #28a745; 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+}
+  
+/* Spin Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .edit-profile-user-info-container {
+        width: 90%;
+    }
+
+    .save-btn-edit-profile {
+        width: 100%;
+        padding: 15px;
+    }
+}

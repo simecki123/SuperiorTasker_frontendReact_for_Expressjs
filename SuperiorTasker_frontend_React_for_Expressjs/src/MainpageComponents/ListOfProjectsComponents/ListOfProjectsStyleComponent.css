@@ -1,0 +1,236 @@
+/* Light version of project-part.css */
+
+.project-part-container {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 500px;
+  overflow-y: auto; 
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+}
+
+.project-part-topnav {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px;
+  background-color: #f0f0f0;
+  flex-wrap: wrap;
+}
+
+.editProject {
+  color: #28a745; /* Green color for edit project */
+}
+
+.project-part-search-container {
+  font-family: Arial, Helvetica, sans-serif;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.project-part-search-form {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  width: 100%;
+}
+
+.project-part-search-bar {
+  flex-grow: 1;
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.project-part-submit-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  background-color: #28a745; /* Green background for button */
+  border-radius: 10px;
+  width: 60px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.project-part-submit-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content-project-part-span {
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dropdown-content-project-part-span:hover {
+  background-color: #e0e0e0;
+}
+
+.project-part-dropdown-btn {
+  color: #fff;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: #28a745;
+  margin-right: 10px;
+}
+
+.project-part-dropdown-btn:hover {
+  background-color: #218838;
+}
+
+.project-part-create-new-project-btn {
+  color: #fff;
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  background-color: #28a745;
+}
+
+.project-part-create-new-project-btn:hover {
+  background-color: #218838;
+}
+
+.project-part-break {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.project-part-unordered-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-part-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.project-part-list:hover {
+  background-color: #d0d0d0;
+}
+
+.project-part-project-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+.project-part-project-link:hover {
+  color: #666;
+}
+
+.project-part-delete-button,
+.project-part-move-button {
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #28a745;
+  margin-right: 10px;
+}
+
+.project-part-delete-button:hover,
+.project-part-move-button:hover {
+  background-color: #218838; 
+}
+
+/* Loading Screen */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  color: #333;
+  font-size: 1.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+/* Loader Animation */
+.loader {
+  border: 16px solid #e0e0e0; 
+  border-top: 16px solid #28a745; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .project-part-topnav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-part-search-form {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .project-part-search-bar {
+    margin-bottom: 10px;
+  }
+
+  .project-part-dropdown-btn,
+  .project-part-create-new-project-btn,
+  .project-part-delete-button,
+  .project-part-move-button {
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .project-part-search-bar,
+  .project-part-submit-button {
+    width: calc(100% - 70px); /* Adjust the width of search bar to fit next to the button */
+    margin-bottom: 0;
+  }
+
+  .project-part-submit-button {
+    width: 60px;
+    height: 40px;
+  }
+}

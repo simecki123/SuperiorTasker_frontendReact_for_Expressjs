@@ -1,33 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
 import './App.css'
+import LoginScreen from './loginComponent/LoginComponent';
+import RegisterScreen from './registerComponent/RegisterComponent';
+import PropTypes from 'prop-types';
+import MainPageComponent from './MainpageComponents/MainPageComponent';
+import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
+import CreateNewProjectComponent from './CreteNewProjectComponents/CreateNewProjectComponent';
+import CheckProjectComponent from './CheckProjectComponents/CheckProjectComponent';
+import EditProjectComponent from './EditProjectComponents/EditProjectComponent';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+// Protected route so no one can get to them without token
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
+
+    if (!token) {
+      return <Navigate to="/" />;
+    }
+
+    return children;
+  };
+
+
+
+
+  ProtectedRoute.propTypes = {
+    children: PropTypes.node.isRequired
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+       <Router>
+        <Routes>
+            <Route path="/" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/mainpage" element={
+              <ProtectedRoute>
+                <MainPageComponent />
+              </ProtectedRoute>
+            } />
+            <Route path='/editProfile' element={
+              <ProtectedRoute>
+                <EditProfileComponent />
+              </ProtectedRoute>
+            } />
+            <Route path='/createnewproject' element={
+              <ProtectedRoute>
+                <CreateNewProjectComponent />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/projectdetails/:projectId' element={
+              <ProtectedRoute>
+                <CheckProjectComponent />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/editProject/:projectId' element={
+              <ProtectedRoute>
+                <EditProjectComponent />
+              </ProtectedRoute>
+            } />
+        </Routes>
+       </Router>
     </>
   )
 }

@@ -1,0 +1,55 @@
+/* Light version of the CSS */
+body {
+    background-color: #f0f0f0;
+}
+
+.project-details-list-of-tasks {
+    width: 100%;
+    background-color: #f0f0f0;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-bar {
+    flex: none;
+}
+
+.main-part {
+    display: flex;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.project-desc {
+    width: 25%;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.add-new-task {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.completion-bar {
+    flex: none;
+}
+
+@media (max-width: 768px) {
+    .main-part {
+        flex-direction: column;
+    }
+
+    .project-desc,
+    .add-new-task {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .list-ofbuttons-for-manipulating-tasks {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

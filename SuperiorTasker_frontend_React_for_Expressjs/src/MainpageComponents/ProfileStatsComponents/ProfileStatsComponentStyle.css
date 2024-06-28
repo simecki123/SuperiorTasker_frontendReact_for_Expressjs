@@ -1,0 +1,91 @@
+/* Light version of Profile-component.css */
+
+/* Default styles for larger screens */
+.Profile-component { 
+  font-family: Arial, Helvetica, sans-serif;
+  height: 95%;
+  background-color: #f0f0f0; 
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-component-big-logo {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-component-big-name-surname {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.profile-component-profile-description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.profile-component-description-text {
+  background-color: #f0f0f0;
+  border-color: #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  resize: none;
+  height: 150px;
+  width: 300px;
+  color: #333;
+}
+
+.profile-component-edit-button {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #28a745; /* Green background for button */
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.profile-component-edit-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Styles for smaller screens */
+@media (max-width: 600px) {
+  .Profile-component {
+    padding: 10px;
+  }
+
+  .profile-component-big-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .profile-component-big-name-surname {
+    font-size: 1.2em;
+  }
+
+  .profile-component-profile-description {
+    font-size: 1em;
+  }
+
+  .profile-component-description-text {
+    font-size: 0.9em;
+  }
+
+  .profile-component-edit-button {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+}

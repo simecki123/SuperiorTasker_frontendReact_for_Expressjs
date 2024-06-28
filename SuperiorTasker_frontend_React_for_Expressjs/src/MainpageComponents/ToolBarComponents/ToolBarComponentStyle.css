@@ -1,0 +1,121 @@
+/* Light version of toolbar.css */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0; 
+  padding: 10px;
+}
+
+.tool-bar-left-section {
+  display: flex;
+  align-items: center;
+}
+
+.tool-bar-dropdown {
+  position: relative;
+}
+
+.tool-bar-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f0f0f0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.tool-bar-dropdown:hover .tool-bar-dropdown-content {
+  display: block;
+}
+
+.tool-bar-span {
+  width: 100px !important;
+  height: 50px;
+  display: block;
+  padding: 8px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tool-bar-span:hover {
+  background-color: #e0e0e0;
+}
+
+.hamburger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  margin-right: 10px;
+}
+
+.hamburger-btn:hover {
+  background-color: #ccc;
+}
+
+.hamburger-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger-bar {
+  width: 25px;
+  height: 5px;
+  background-color: #333;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+.tool-bar-small-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.tool-bar-name-surname {
+  font-size: 1.5em;
+  color: #333;
+  margin: 0;
+}
+
+.tool-bar-right-section {
+  display: flex;
+  align-items: center;
+}
+
+.settings-btn {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.settings-btn:hover {
+  background-color: #ccc;
+}
+
+.settings-btn img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.toolbar-break {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}

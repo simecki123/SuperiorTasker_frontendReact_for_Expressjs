@@ -1,0 +1,97 @@
+/* Light version of ToDoListComponentsStyle.css */
+.toDoList-create-new-project {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
+}
+
+.todo-list-createproject-title {
+  color: #333;
+}
+
+.todo-list-create-project-enter-task-input {
+  background-color: #f5f5f5;
+  color: #333;
+  border: none;
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+.add-button-create-new-project {
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #4CAF50; /* Changed from #2196f3 to #4CAF50 */
+  margin-right: 10px;
+}
+
+.add-button-create-new-project:hover {
+  background-color: #45a049; /* Changed from #0b6ab7 to #45a049 */
+}
+
+.todo-list-create-project-unordered-list {
+  border-radius: 5px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list-create-project-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #f5f5f5; /* Changed from #444 to #f5f5f5 */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.text-create-new-project-task-title {
+  color: #333;
+  margin-left: 10px;
+}
+
+.text-create-new-project-task-delete-button,
+.text-create-new-project-task-move-button {
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #4CAF50; /* Changed from #2196f3 to #4CAF50 */
+  margin-right: 10px;
+}
+
+.text-create-new-project-task-delete-button:hover,
+.text-create-new-project-task-move-button:hover {
+  background-color: #45a049; /* Changed from #0b6ab7 to #45a049 */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .todo-list-create-project-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .text-create-new-project-task-title {
+    margin-bottom: 10px;
+  }
+  
+  .button-for-tasks-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .text-create-new-project-task-delete-button,
+  .text-create-new-project-task-move-button {
+    margin-top: 5px;
+  }
+  
+  .add-button-create-new-project {
+    height: 50px;
+    width: 65px;
+  }
+}

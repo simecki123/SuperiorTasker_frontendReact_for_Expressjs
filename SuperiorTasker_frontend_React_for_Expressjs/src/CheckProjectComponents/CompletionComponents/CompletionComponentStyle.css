@@ -1,0 +1,18 @@
+/* Light version of the CSS */
+.completion-bar {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.completion-bar-title {
+  color: #333;
+}
+
+.myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #28a745;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}

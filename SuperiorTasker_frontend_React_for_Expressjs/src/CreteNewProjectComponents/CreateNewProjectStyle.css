@@ -1,0 +1,41 @@
+/* Light version of CreateNewProjectStyle.css */
+.main-page {
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.tool-bar {
+  width: 100%;
+}
+
+.main-part {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.project-desc {
+  width: 30%;
+}
+
+.add-new-task {
+  width: 70%;
+}
+
+.bottom-bar {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-part {
+    flex-direction: column;
+  }
+  
+  .project-desc, .add-new-task {
+    width: 100%;
+  }
+}

@@ -1,0 +1,72 @@
+/* Light version of the CSS */
+.toDoList-list-of-tasks {
+  height: 500px;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list-title {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.unordered-list-todo-list-of-tasks {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list-todo-list-of-tasks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.todo-list-text {
+  width: 70%;
+}
+
+.todo-list-checkbox {
+  height: 30px;
+  width: 40px;
+}
+
+.list-ofbuttons-for-manipulating-tasks {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-list-delete-button,
+.todo-list-move-button {
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #28a745;
+  margin-right: 10px;
+}
+
+.todo-list-delete-button:hover,
+.todo-list-move-button:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .list-ofbuttons-for-manipulating-tasks {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .todo-list-delete-button,
+  .todo-list-move-button {
+      width: 100%;
+      margin: 5px 0;
+  }
+}
