@@ -16,7 +16,7 @@ function CreateNewProjectComponent() {
         title: '',
         description: '',
         date: '',
-        completion: '0%'
+        completion: '0.00%'
     });
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -66,8 +66,10 @@ function CreateNewProjectComponent() {
         }
 
         try {
+            
             const savedProject = await saveProject(newProject);
-            const projectId = savedProject.data.id;
+            console.log("saved project ",savedProject)
+            const projectId = savedProject.data._id;
 
             const tasksWithProjectId = newTaskList.map(task => ({
                 ...task,

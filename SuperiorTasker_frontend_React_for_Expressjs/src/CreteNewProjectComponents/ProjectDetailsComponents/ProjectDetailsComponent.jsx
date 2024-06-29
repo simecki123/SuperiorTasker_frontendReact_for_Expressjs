@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 
 function ProjectDetailsComponent({ user, setNewProject }) {
     const [project, setProject] = useState({
-        userId: user.id,
+        userId: user._id,
         title: '',
         description: '',
         date: '',
-        completion: '0%'
+        completion: '0.00%'
     });
 
     useEffect(() => {
         setProject(prevProject => ({
             ...prevProject,
-            userId: user.id
+            userId: user._id
         }));
     }, [user]);
 
@@ -28,7 +28,7 @@ function ProjectDetailsComponent({ user, setNewProject }) {
         setNewProject(prevProject => ({
             ...prevProject,
             [name]: value,
-            userId: user.id 
+            userId: user._id 
         }));
     };
 

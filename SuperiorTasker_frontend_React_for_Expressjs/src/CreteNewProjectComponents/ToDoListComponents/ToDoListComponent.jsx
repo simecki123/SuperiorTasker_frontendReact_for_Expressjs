@@ -12,7 +12,7 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
         const newTask = {
             id: newTaskList.length + 1, // This is just a temporary ID, you might want to use UUID or similar
             name: newTaskTitle,
-            userId: user.id,
+            userId: user._id,
             projectId: '' ,// This will be set after the project is saved
             done: 'false'
         };
@@ -22,12 +22,12 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
 
     // Delete task
     const handleDeleteTask = (taskId) => {
-        setNewTaskList(newTaskList.filter(task => task.id !== taskId));
+        setNewTaskList(newTaskList.filter(task => task._id !== taskId));
     };
 
     // Move task up
     const handleMoveTaskUp = (taskId) => {
-        const index = newTaskList.findIndex(project => project.id === taskId);
+        const index = newTaskList.findIndex(project => project._id === taskId);
         if (index > 0) {
         const newList = [...newTaskList];
         const temp = newList[index];
@@ -39,7 +39,7 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
 
     // Move task down
     const handleMoveTaskDown = (taskId) => {
-        const index = newTaskList.findIndex(project => project.id === taskId);
+        const index = newTaskList.findIndex(project => project._id === taskId);
         if (index < newTaskList.length - 1) {
         const newList = [...newTaskList];
         const temp = newList[index];
@@ -68,12 +68,12 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
 
                 <ol className='todo-list-create-project-unordered-list'>
                     {newTaskList.map(task => (
-                        <li className='todo-list-create-project-list' key={task.id}>
+                        <li className='todo-list-create-project-list' key={task._id}>
                             <span className='text-create-new-project-task-title'>{task.name}</span>
                             <div className='button-for-tasks-container'>
-                                <button className='text-create-new-project-task-delete-button' onClick={() => handleDeleteTask(task.id)}>Delete</button>
-                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskUp(task.id)}>☝</button>
-                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskDown(task.id)}>👇</button>
+                                <button className='text-create-new-project-task-delete-button' onClick={() => handleDeleteTask(task._id)}>Delete</button>
+                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskUp(task._id)}>☝</button>
+                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskDown(task._id)}>👇</button>
                             </div>
                         </li>
                     ))}

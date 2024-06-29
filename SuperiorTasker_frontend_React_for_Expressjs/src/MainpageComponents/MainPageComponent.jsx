@@ -30,8 +30,8 @@ function MainPageComponent() {
             }
 
             setUser(storedUser);
-
-            const res = await findAllProjects(storedUser.id);
+            console.log("User ",storedUser)
+            const res = await findAllProjects(storedUser._id);
             const projects = res.data.projectList;
 
             // Update state with fetched projects

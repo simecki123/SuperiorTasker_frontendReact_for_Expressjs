@@ -18,13 +18,13 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         const tasks = response.data.taskList;
 
         // Delete all tasks related to the project
-        await Promise.all(tasks.map(task => deleteTask(task.id)));
+        await Promise.all(tasks.map(task => deleteTask(task._id)));
 
         // Delete the project itself
         await deleteProject(projectId);
 
         // Remove the project from the local state
-        setProjectList(prevList => prevList.filter(project => project.id !== projectId));
+        setProjectList(prevList => prevList.filter(project => project._id !== projectId));
         setLoading(false);
         } catch (error) {
             setLoading(false);
@@ -34,7 +34,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
 
     // Manipulating list move selected project up
     const moveProjectUp = (projectId) => {
-        const index = projectList.findIndex(project => project.id === projectId);
+        const index = projectList.findIndex(project => project._id === projectId);
         if (index > 0) {
         const newList = [...projectList];
         const temp = newList[index];
@@ -46,7 +46,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
 
     // Manipulating list move selected project down
     const moveProjectDown = (projectId) => {
-        const index = projectList.findIndex(project => project.id === projectId);
+        const index = projectList.findIndex(project => project._id === projectId);
         if (index < projectList.length - 1) {
         const newList = [...projectList];
         const temp = newList[index];
@@ -131,16 +131,16 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
                 <div>
                 <ol className='project-part-unordered-list'>
                         {projectList.map(project => (
-                        <li className='project-part-list' key={project.id}>
-                            <Link className='editProject' to={`/projectdetails/${project.id}`}>
+                        <li className='project-part-list' key={project._id}>
+                            <Link className='editProject' to={`/projectdetails/${project._id}`}>
                                 <span className="project-part-text">{project.title}</span>
                                 <span className='project-part-completion'>{project.completion}</span>
                             </Link>
                             <span className='project-part-date'>{project.date}</span>
                             <div>
-                                <button className="project-part-delete-button" onClick={() => handleDeleteProject(project.id)}>Delete</button>
-                                <button className="project-part-move-button" onClick={() => moveProjectUp(project.id)}>☝</button>
-                                <button className="project-part-move-button" onClick={() => moveProjectDown(project.id)}>👇</button>
+                                <button className="project-part-delete-button" onClick={() => handleDeleteProject(project._id)}>Delete</button>
+                                <button className="project-part-move-button" onClick={() => moveProjectUp(project._id)}>☝</button>
+                                <button className="project-part-move-button" onClick={() => moveProjectDown(project._id)}>👇</button>
                             </div>
                         </li>
                         ))}

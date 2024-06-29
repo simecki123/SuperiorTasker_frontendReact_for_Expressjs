@@ -7,7 +7,7 @@ function EditProfileComponent() {
     const [loading, setLoading] = useState(false);
     // Deffault user
     const [user, setUser] = useState({
-        id: '',
+        _id: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -22,7 +22,7 @@ function EditProfileComponent() {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
             setUser({
-                id: storedUser.id,
+                _id: storedUser._id,
                 firstName: storedUser.firstName,
                 lastName: storedUser.lastName,
                 email: storedUser.email,
@@ -48,8 +48,7 @@ function EditProfileComponent() {
     const handleSave = async () => {
         try {
             setLoading(true);
-            
-            await updateUser(user.id, user);
+            await updateUser(user._id, user);
             localStorage.setItem('user', JSON.stringify(user));
             setLoading(false);
             navigate('/mainpage');

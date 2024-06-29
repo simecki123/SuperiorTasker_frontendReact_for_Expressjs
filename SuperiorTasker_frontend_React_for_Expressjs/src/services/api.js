@@ -47,26 +47,25 @@ api.interceptors.response.use(
 );
 
 // User requests
-export const login = (loginData) => api.post('/api/login', loginData);
-export const register = (userData) => api.post('/api/register', userData);
-export const deleteUser = (id) => api.delete(`/user/delete/${id}`);
-export const getUserById = (id) => api.get(`/user/findById/${id}`);
-export const getUserByEmail = (email) => api.get(`/user/findByEmail/${email}`);
-export const updateUser = (id, userData) => api.put(`/user/updateUser/${id}`, userData);
+export const login = (loginData) => api.post('/api/auth/login', loginData);
+export const register = (userData) => api.post('/api/auth/register', userData);
+export const deleteUser = (id) => api.delete(`/api/auth/user/delete/${id}`);
+export const getUserById = (id) => api.get(`/api/auth/user/getUserById/${id}`);
+export const updateUser = (id, userData) => api.put(`/api/auth/user/update/${id}`, userData);
 
 // Project requests
-export const saveProject = (projectData) => api.post('/projects/saveProject', projectData);
-export const deleteProject = (id) => api.delete(`/projects/deleteProject/${id}`);
-export const getProjectById = (id) => api.get(`/projects/getProjectById/${id}`);
-export const findAllProjects = (userId) => api.get(`/projects/findAllProjects/${userId}`);
-export const updateProject = (id, updateProject) => api.put(`/projects/updateProject/${id}`, updateProject);
+export const saveProject = (projectData) => api.post('/api/projects/saveProject', projectData);
+export const deleteProject = (id) => api.delete(`/api/projects/deleteProject/${id}`);
+export const getProjectById = (id) => api.get(`/api/projects/getProjectById/${id}`);
+export const findAllProjects = (userId) => api.get(`/api/projects/findProjectsByUserId/${userId}`);
+export const updateProject = (id, updateProject) => api.put(`/api/projects/updateProject/${id}`, updateProject);
 
 // Task requests
-export const saveTask = (taskData) => api.post('/tasks/saveTask', taskData);
-export const deleteTask = (id) => api.delete(`/tasks/delete/${id}`);
-export const findTaskById = (id) => api.get(`/tasks/findTaskById/${id}`);
-export const findAllTasksOfTheProject = (projectId) => api.get(`/tasks/findAllTasksOfProject/${projectId}`);
-export const findAllTasksOfUser = (userId) => api.get(`/tasks/findAllTasksOfUser/${userId}`);
-export const updateTask = (id, updatedTask) => api.put(`/tasks/updateTask/${id}`, updatedTask);
+export const saveTask = (taskData) => api.post('/api/tasks/saveTask', taskData);
+export const deleteTask = (id) => api.delete(`/api/tasks/deleteTask/${id}`);
+export const findTaskById = (id) => api.get(`/api/tasks/findTaskById/${id}`);
+export const findAllTasksOfTheProject = (projectId) => api.get(`/api/tasks/findByProjectId/${projectId}`);
+export const findAllTasksOfUser = (userId) => api.get(`/api/tasks/findByUserId/${userId}`);
+export const updateTask = (id, updatedTask) => api.put(`/api/tasks/updateTask/${id}`, updatedTask);
 
 export default api;
