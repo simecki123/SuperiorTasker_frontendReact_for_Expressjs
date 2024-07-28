@@ -2,7 +2,7 @@ import ToolBarComponent from '../MainpageComponents/ToolBarComponents/ToolBarCom
 import './EditProjectComponentStyle.css';
 import ProjectListOfTasksToEditComponent from './ProjectListOfTasksToEditComponents/ProjectListOfTasksToEditComponent';
 import UpdateProjectAndTasksButtonComponent from './UpdateProjectAndTasksButtonComponent/UpdateProjectAndTasksButtonComponent';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getProjectById, findAllTasksOfTheProject, saveTask, deleteTask as deleteTaskAPI, updateProject } from '../services/api';
 import EditProjectDetailsComponent from './EditProjectDetailsComponent/EditProjectDetailsComponent';

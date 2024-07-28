@@ -8,18 +8,18 @@ function ListOfTasksComponent({ taskList, moveTaskUp, moveTaskDown, deleteTaskFu
             <hr />
             <ol className='unordered-list-todo-list-of-tasks'>
                 {taskList.map(task => (
-                    <li className='list-todo-list-of-tasks' key={task.id}>
+                    <li className='list-todo-list-of-tasks' key={task._id}>
                         <input 
                             type='checkbox'  
                             className='todo-list-checkbox' 
                             checked={task.done} 
-                            onChange={() => toggleTaskDone(task.id)} 
+                            onChange={() => toggleTaskDone(task._id)} 
                         />
                         <span className='todo-list-text'>{task.name}</span>
                         <div className='list-ofbuttons-for-manipulating-tasks'>
-                            <button className='todo-list-delete-button' onClick={() => deleteTaskFunctionality(task.id)}>Delete</button>
-                            <button className='todo-list-move-button' onClick={() => moveTaskUp(task.id)}>☝</button>
-                            <button className='todo-list-move-button' onClick={() => moveTaskDown(task.id)}>👇</button>
+                            <button className='todo-list-delete-button' onClick={() => deleteTaskFunctionality(task._id)}>Delete</button>
+                            <button className='todo-list-move-button' onClick={() => moveTaskUp(task._id)}>☝</button>
+                            <button className='todo-list-move-button' onClick={() => moveTaskDown(task._id)}>👇</button>
                         </div>
                     </li>
                 ))}

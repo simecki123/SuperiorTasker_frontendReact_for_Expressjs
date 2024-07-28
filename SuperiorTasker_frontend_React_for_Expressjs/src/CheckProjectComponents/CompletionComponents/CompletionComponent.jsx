@@ -7,8 +7,8 @@ function CompletionComponent({ taskList }) {
 
     useEffect(() => {
         // Calculate the completion percentage based on the number of completed tasks
-        const completedTasks = taskList.filter(task => task.done);
-        const percentage = (completedTasks.length / taskList.length) * 100;
+        const completedTasks = taskList.filter(task => task.done).length;
+        const percentage = taskList.length ? (completedTasks / taskList.length) * 100 : 0;
         setCompletionPercentage(percentage);
     }, [taskList]);
 

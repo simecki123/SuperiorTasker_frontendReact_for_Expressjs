@@ -66,7 +66,15 @@ function CheckProjectComponent() {
     const calculateAndUpdateCompletionPercentage = async (tasks, projectToUpdate) => {
         const completedTasks = tasks.filter(task => task.done).length;
         const completionPercentage = ((completedTasks / tasks.length) * 100).toFixed(2);
-        projectToUpdate.completion = `${completionPercentage}%`;
+        if (tasks.length === 0) {
+            console.log('task list is empty')
+            projectToUpdate.completion = '0.00%';
+        } else {
+            console.log('task list is not empty')
+            projectToUpdate.completion = `${completionPercentage}%`;
+        }
+        
+        
 
         try {
             await updateProject(projectId, projectToUpdate);
@@ -78,7 +86,7 @@ function CheckProjectComponent() {
 
     // Move task up
     const moveTaskUp = (taskId) => {
-        const index = taskList.findIndex(task => task.id === taskId);
+        const index = taskList.findIndex(task => task._id === taskId);
         if (index > 0) {
             const newList = [...taskList];
             const temp = newList[index];
@@ -90,7 +98,7 @@ function CheckProjectComponent() {
 
     // Move task down
     const moveTaskDown = (taskId) => {
-        const index = taskList.findIndex(task => task.id === taskId);
+        const index = taskList.findIndex(task => task._id === taskId);
         if (index < taskList.length - 1) {
             const newList = [...taskList];
             const temp = newList[index];
@@ -105,7 +113,7 @@ function CheckProjectComponent() {
         setLoading(true);
         try {
             await deleteTask(taskId);
-            const newTaskList = taskList.filter(task => task.id !== taskId);
+            const newTaskList = taskList.filter(task => task._id !== taskId);
             setTaskList(newTaskList);
             calculateAndUpdateCompletionPercentage(newTaskList, project);
         } catch (error) {
@@ -118,7 +126,7 @@ function CheckProjectComponent() {
     // Set task as done and update that task
     const toggleTaskDone = async (taskId) => {
         setLoading(true);
-        const taskToUpdate = taskList.find(task => task.id === taskId);
+        const taskToUpdate = taskList.find(task => task._id === taskId);
         if (!taskToUpdate) return;
 
         const updatedTask = { ...taskToUpdate, done: !taskToUpdate.done };
@@ -126,7 +134,7 @@ function CheckProjectComponent() {
         try {
             await updateTask(taskId, updatedTask);
             const newTaskList = taskList.map(task =>
-                task.id === taskId ? updatedTask : task
+                task._id === taskId ? updatedTask : task
             );
             setTaskList(newTaskList);
             calculateAndUpdateCompletionPercentage(newTaskList, project);

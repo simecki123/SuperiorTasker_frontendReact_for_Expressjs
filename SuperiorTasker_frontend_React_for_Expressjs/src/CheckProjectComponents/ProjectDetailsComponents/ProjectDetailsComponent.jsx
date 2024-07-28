@@ -6,6 +6,7 @@ function ProjectDetailsComponent({ project }) {
 
     // Loading...
     if (!project) return <div>Loading...</div>;
+    
 
     return (
         <>
@@ -18,7 +19,7 @@ function ProjectDetailsComponent({ project }) {
 
                 <p className='project-date'>{project.date}</p>
 
-                <Link to={`/editProject/${project.id}`}>
+                <Link to={`/editProject/${project._id}`}>
                     <button className="edit-project-btn">Edit project</button>
                 </Link>
             </div>
@@ -28,7 +29,7 @@ function ProjectDetailsComponent({ project }) {
 
 ProjectDetailsComponent.propTypes = {
     project: PropTypes.shape({
-        id: PropTypes.string,
+        _id: PropTypes.string,
         userId: PropTypes.string,
         title: PropTypes.string,
         description: PropTypes.string,
