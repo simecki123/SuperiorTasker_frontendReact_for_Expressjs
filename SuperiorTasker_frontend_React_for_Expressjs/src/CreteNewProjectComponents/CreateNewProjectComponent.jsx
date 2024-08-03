@@ -4,7 +4,7 @@ import './CreateNewProjectStyle.css';
 import ProjectDetailsComponent from './ProjectDetailsComponents/ProjectDetailsComponent';
 import ToDoListComponent from './ToDoListComponents/ToDoListComponent';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { saveProject, saveTask } from '../services/api';
 

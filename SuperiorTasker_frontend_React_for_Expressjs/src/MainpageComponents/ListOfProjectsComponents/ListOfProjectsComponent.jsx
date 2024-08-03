@@ -5,7 +5,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 
-function ListOfProjectsComponent({user, projectList, setProjectList}) {
+function ListOfProjectsComponent({ projectList, setProjectList}) {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
 

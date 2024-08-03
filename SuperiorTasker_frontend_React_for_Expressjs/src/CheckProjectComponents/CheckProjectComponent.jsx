@@ -3,7 +3,7 @@ import ToolBarComponent from '../MainpageComponents/ToolBarComponents/ToolBarCom
 import ProjectDetailsComponent from './ProjectDetailsComponents/ProjectDetailsComponent';
 import ListOfTasksComponent from './ListOfTasksComponents/ListOfTasksComponent';
 import CompletionComponent from './CompletionComponents/CompletionComponent';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getProjectById, findAllTasksOfTheProject, deleteTask, updateTask, updateProject } from '../services/api';
 

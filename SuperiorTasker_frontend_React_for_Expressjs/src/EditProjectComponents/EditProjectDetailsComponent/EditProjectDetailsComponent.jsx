@@ -1,4 +1,5 @@
 import './EditProjectDetailsComponentStyle.css';
+import PropTypes from 'prop-types';
 
 function EditProjectDetailsComponent({ project, handleChange }) {
     return (
@@ -35,5 +36,14 @@ function EditProjectDetailsComponent({ project, handleChange }) {
         </div>
     );
 }
+
+EditProjectDetailsComponent.propTypes = {
+    project: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired
+    }).isRequired,
+    handleChange: PropTypes.func.isRequired
+};
 
 export default EditProjectDetailsComponent;

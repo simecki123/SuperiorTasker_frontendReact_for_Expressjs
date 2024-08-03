@@ -3,7 +3,7 @@ import './MainPageComponentStyle.css';
 import ProfileStatsComponent from './ProfileStatsComponents/ProfileStatsComponent';
 import ToolBarComponent from './ToolBarComponents/ToolBarComponent';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { findAllProjects } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
