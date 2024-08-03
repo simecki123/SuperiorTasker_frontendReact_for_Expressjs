@@ -39,7 +39,7 @@ function EditProjectComponent() {
                 navigate('/');
                 return;
             }
-
+            console.log("Stored user: ", storedUser);
             setUser(storedUser);
             console.log("projectId: " + projectId);
             if (projectId) {
@@ -71,7 +71,7 @@ function EditProjectComponent() {
 
     // Move task up
     const moveTaskUp = (taskId) => {
-        const index = taskList.findIndex(task => task.id === taskId);
+        const index = taskList.findIndex(task => task._id === taskId);
         if (index > 0) {
             const newList = [...taskList];
             const temp = newList[index];
@@ -87,10 +87,10 @@ function EditProjectComponent() {
             return; // Do not add the task if the title is empty or only contains whitespace
         }
         const newTask = {
-            id: Date.now(), // Temporary unique ID
+            _id: Date.now(), // Temporary unique ID
             name: newTaskTitle,
-            userId: user.id,
-            projectId: project.id, // Ensure projectId is set
+            userId: user._id,
+            projectId: projectId, // Ensure projectId is set
             done: false
         };
         setTaskList([...taskList, newTask]);
@@ -99,7 +99,7 @@ function EditProjectComponent() {
 
     // Move task down
     const moveTaskDown = (taskId) => {
-        const index = taskList.findIndex(task => task.id === taskId);
+        const index = taskList.findIndex(task => task._id === taskId);
         if (index < taskList.length - 1) {
             const newList = [...taskList];
             const temp = newList[index];
@@ -111,7 +111,7 @@ function EditProjectComponent() {
 
     // Fully delete task
     const deleteTask = (taskId) => {
-        setTaskList(taskList.filter(task => task.id !== taskId)); // Only remove from the local state
+        setTaskList(taskList.filter(task => task._id !== taskId)); // Only remove from the local state
     };
 
     // Update entire project
@@ -122,10 +122,11 @@ function EditProjectComponent() {
             // Fetch existing tasks from the database
             const response = await findAllTasksOfTheProject(projectId);
             const existingTasks = response.data.taskList;
+            console.log('Existing tasks: ', existingTasks);
 
             // Delete all existing tasks associated with the project
             for (const task of existingTasks) {
-                await deleteTaskAPI(task.id);
+                await deleteTaskAPI(task._id);
             }
 
             // Calculate completion percentage
@@ -140,9 +141,12 @@ function EditProjectComponent() {
             // Add tasks to the database
             for (const task of taskList) {
                 const taskToSave = { ...task };
-                delete taskToSave.id;  // Remove the id field to let MongoDB generate a new one
+                delete taskToSave._id;  // Remove the id field to let MongoDB generate a new one
+                console.log("Task to save: ", taskToSave);
                 await saveTask(taskToSave);
             }
+
+            console.log("Project to update: ", project);
 
             // Update the project
             await updateProject(projectId, project);
