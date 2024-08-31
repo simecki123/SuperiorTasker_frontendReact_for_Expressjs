@@ -9,6 +9,7 @@ import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
 import CreateNewProjectComponent from './CreteNewProjectComponents/CreateNewProjectComponent';
 import CheckProjectComponent from './CheckProjectComponents/CheckProjectComponent';
 import EditProjectComponent from './EditProjectComponents/EditProjectComponent';
+import AdminPageComponent from './AdminPageComponent/AdminPageComponent';
 
 
 function App() {
@@ -62,6 +63,12 @@ const ProtectedRoute = ({ children }) => {
             <Route path='/editProject/:projectId' element={
               <ProtectedRoute>
                 <EditProjectComponent />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/adminpage' element={
+              <ProtectedRoute>
+                <AdminPageComponent></AdminPageComponent>
               </ProtectedRoute>
             } />
         </Routes>

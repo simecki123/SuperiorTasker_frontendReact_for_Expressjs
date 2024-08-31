@@ -38,6 +38,11 @@ function ToolBarComponent({user}) {
                     <Link to="/mainpage">
                         <span className='tool-bar-span'>Home</span>
                     </Link>
+                    {user.role === 'ADMIN' && (
+                                <Link to="/adminpage">
+                                    <span className='tool-bar-span'>Admin Page</span>
+                                </Link>
+                            )}
                     </div>
                 </div>
                 <img src={user.image} alt='User' className='tool-bar-small-logo' />
@@ -67,6 +72,7 @@ ToolBarComponent.propTypes = {
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
+      role: PropTypes.string.isRequired,
     }).isRequired,
   };
 

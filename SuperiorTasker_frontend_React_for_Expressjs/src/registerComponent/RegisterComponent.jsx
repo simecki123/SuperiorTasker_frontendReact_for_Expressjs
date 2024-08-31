@@ -38,7 +38,7 @@ function RegisterScreen() {
     }
 
     try {
-      const res = await register({firstName: firstName, lastName: lastName, email: email, password: password, description: '', image: '' });
+      const res = await register({firstName: firstName, lastName: lastName, email: email, password: password, description: '', image: '', role: 'USER' });
       console.log(res);
       navigate('/');
     } catch (err) {
